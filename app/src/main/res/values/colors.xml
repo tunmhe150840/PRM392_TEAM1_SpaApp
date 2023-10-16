@@ -7,4 +7,6 @@
     <color name="gray_light">#CFCECE</color>
     <color name="bg">#f0f4f7</color>
     <color name="orange">#efaf52</color>
+    <color name="green">#42de69</color>
+    <color name="red">#F80202</color>
 </resources>
