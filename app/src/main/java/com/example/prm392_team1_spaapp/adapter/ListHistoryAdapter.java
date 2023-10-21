@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_team1_spaapp.R;
-import com.example.prm392_team1_spaapp.model.History;
+import com.example.prm392_team1_spaapp.model.RechargeHistory;
 
 import java.util.List;
 
@@ -18,17 +18,16 @@ import java.util.List;
 public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.ListViewHolder>{
 
 
-    private List<History> listHistory;
+    private List<RechargeHistory> listRechargeHistory;
 
-    public ListHistoryAdapter(List<History> data) {
-        this.listHistory = data;
+    public ListHistoryAdapter(List<RechargeHistory> data) {
+        this.listRechargeHistory = data;
     }
 
 
-    public void setData(List<History> list){
-        this.listHistory = list;
+    public void setData(List<RechargeHistory> list){
+        this.listRechargeHistory = list;
         notifyDataSetChanged();
-
     }
 
     @NonNull
@@ -40,16 +39,16 @@ public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        History history = listHistory.get(position);
-        if (history==null){
+        RechargeHistory rechargeHistory = listRechargeHistory.get(position);
+        if (rechargeHistory ==null){
             return;
         }
-        holder.tv_name.setText(history.getTransactionType());
-        holder.tv_date.setText(history.getTransactionTime());
-        holder.description.setText(history.getDescription());
-        holder.money.setText(Integer.toString(history.getAmount()));
-        holder.status.setText(history.getStatus()==1? "Thành công" : "Thất bại");
-        int colorRes = history.getStatus() == 1 ? R.color.green : R.color.red;
+        holder.tv_name.setText(rechargeHistory.getTransactionType());
+        holder.tv_date.setText(rechargeHistory.getTransactionTime().toString());
+        holder.description.setText(rechargeHistory.getDescription());
+        holder.money.setText(Integer.toString(rechargeHistory.getAmount()));
+        holder.status.setText(rechargeHistory.getStatus()==1? "Thành công" : "Thất bại");
+        int colorRes = rechargeHistory.getStatus() == 1 ? R.color.green : R.color.red;
         int color = ContextCompat.getColor(holder.itemView.getContext(), colorRes);
         holder.status.setTextColor(color);
 
@@ -57,8 +56,8 @@ public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.
 
     @Override
     public int getItemCount() {
-        if(listHistory!=null){
-            return listHistory.size();
+        if(listRechargeHistory !=null){
+            return listRechargeHistory.size();
         }
         return 0;
     }
@@ -73,7 +72,7 @@ public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_name=itemView.findViewById(R.id.tv_namee);
+            tv_name=itemView.findViewById(R.id.tv_name);
             tv_date = itemView.findViewById(R.id.tv_date);
             description = itemView.findViewById(R.id.description);
             money = itemView.findViewById(R.id.money);

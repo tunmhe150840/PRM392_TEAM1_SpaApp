@@ -1,28 +1,31 @@
 package com.example.prm392_team1_spaapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-
-public class History {
+@Entity(tableName = "RechargeHistory")
+public class RechargeHistory {
+    @ColumnInfo(name = "recharge_history_id")
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     private int user_id;
-
+    @ColumnInfo(name = "transaction_type")
     private String transactionType;
-
+    @ColumnInfo(name = "transaction_time")
     private String transactionTime;
-
+    @ColumnInfo(name = "amount")
     private int amount;
-
+    @ColumnInfo(name = "status")
     private int status;
-
+    @ColumnInfo(name = "description")
     private String description;
-
-    public History(){
+    @Ignore()
+    public RechargeHistory(){
 
     }
-    public History(int id, int user_id, String transactionType, String transactionTime, int amount, int status, String description) {
+    public RechargeHistory(int id, int user_id, String transactionType, String transactionTime, int amount, int status, String description) {
         this.id = id;
         this.user_id = user_id;
         this.transactionType = transactionType;
