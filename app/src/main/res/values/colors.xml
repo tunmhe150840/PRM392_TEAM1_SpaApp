@@ -10,4 +10,6 @@
     <color name="green">#42de69</color>
     <color name="red">#F80202</color>
     <color name="purple_500">#FF6200EE</color>
+    <color name="toolbar_color">#32A136</color>
+
 </resources>

@@ -19,7 +19,7 @@
             android:background="@color/primary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Xin chào người đẹp"
+            app:title="Xin chào,"
             app:titleTextColor="@color/white" />
 
         <ImageView

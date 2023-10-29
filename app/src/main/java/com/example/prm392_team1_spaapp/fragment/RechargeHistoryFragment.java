@@ -5,12 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.prm392_team1_spaapp.MainActivity;
 import com.example.prm392_team1_spaapp.R;
 import com.example.prm392_team1_spaapp.adapter.ListHistoryAdapter;
 import com.example.prm392_team1_spaapp.model.RechargeHistory;
@@ -24,11 +29,13 @@ public class RechargeHistoryFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListHistoryAdapter adapter;
     private ArrayList<RechargeHistory> listRechargeHistory = new ArrayList<RechargeHistory>();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history_list, container, false);
+        MainActivity mainActivity = new MainActivity();
         listRechargeHistory.add(new RechargeHistory(1,1,"Nạp tiền 1","2023-12-12",12000,1,"Bạn đã nạp xèng thành công"));
         listRechargeHistory.add(new RechargeHistory(2,1,"Nạp tiền 2","2023-12-12",100000,0,"Bạn đã nạp xèng thất bại"));
         listRechargeHistory.add(new RechargeHistory(3,1,"Nạp tiền 3","2023-12-12",562000,1,"Bạn đã nạp xèng thành công"));
