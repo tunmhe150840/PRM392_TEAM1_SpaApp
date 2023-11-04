@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.prm392_team1_spaapp.dataLocal.DataLocalManager;
+import com.example.prm392_team1_spaapp.model.AccountDatabase;
 import com.example.prm392_team1_spaapp.model.Money;
 
 import java.util.List;
@@ -24,7 +26,7 @@ public class WithdrawDetailActivity extends AppCompatActivity {
     Button btn6;
     EditText edt1;
     ImageView imv2;
-    TextView totalmoney;
+    TextView totalMoney;
     Button submit;
 
 
@@ -42,13 +44,10 @@ public class WithdrawDetailActivity extends AppCompatActivity {
         btn6 = findViewById(R.id.button6);
         edt1 = findViewById(R.id.money_input);
         imv2 = findViewById(R.id.back2);
-        totalmoney = findViewById(R.id.totalMoney);
+        totalMoney = findViewById(R.id.totalMoney);
         submit = findViewById(R.id.confirm_button2);
-        TransferMoneyDatabaseHelper transferMoneyDatabaseHelper = new TransferMoneyDatabaseHelper(WithdrawDetailActivity.this);
-        List<Money> listMoney = transferMoneyDatabaseHelper.getAll();
-        Money moneyRoot = new Money();
-        //Money moneyRoot = listMoney.get(0);
-        totalmoney.setText(""+ moneyRoot.getTotalMoney());
+
+        totalMoney.setText(""+ DataLocalManager.getInstance().getPrefMoney());
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,8 +106,11 @@ public class WithdrawDetailActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float totalMoney =Float.parseFloat(edt1.getText().toString().trim()) - moneyRoot.getTotalMoney();
-                transferMoneyDatabaseHelper.decreaseMoney(moneyRoot.getId(),totalMoney);
+                float subMoney = Float.parseFloat(totalMoney.getText().toString().trim()) - Float.parseFloat(edt1.getText().toString().trim());
+                AccountDatabase.getInstance(getApplicationContext()).getAccountDAO().updateMoney(
+                        DataLocalManager.getInstance().getPrefUsername(), subMoney
+                );
+                DataLocalManager.getInstance().setPrefMoney(subMoney);
                 recreate();
             }
         });

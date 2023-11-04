@@ -93,5 +93,6 @@ public class MainActivity extends AppCompatActivity {
             mServiceList = ServiceDatabase.getInstance(this).getServiceDAO().getAllService();
         }
         Log.d("TAG", "initdata: " + mServiceList.get(0).getServiceName());
+
     }
 }

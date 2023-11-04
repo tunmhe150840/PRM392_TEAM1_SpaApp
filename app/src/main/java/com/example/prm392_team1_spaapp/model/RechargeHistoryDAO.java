@@ -20,6 +20,6 @@ public interface RechargeHistoryDAO {
     public List<RechargeHistory> getAllHistory();
     @Query("select * from RechargeHistory where recharge_history_id ==:recharge_history_id")
     public RechargeHistory getHistory(int recharge_history_id);
-
-
+    @Query("select * from RechargeHistory where username ==:username")
+    public List<RechargeHistory> getAllHistoriesOfAccount(String username);
 }

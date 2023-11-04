@@ -19,6 +19,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.prm392_team1_spaapp.MainActivity;
 import com.example.prm392_team1_spaapp.R;
 import com.example.prm392_team1_spaapp.adapter.ListHistoryAdapter;
+import com.example.prm392_team1_spaapp.dataLocal.DataLocalManager;
 import com.example.prm392_team1_spaapp.model.RechargeHistory;
 import com.example.prm392_team1_spaapp.model.RechargeHistoryDatabase;
 
@@ -36,16 +37,16 @@ public class RechargeHistoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_history_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_history_list, container, false);;
         listRechargeHistory = new ArrayList<>();
-        listRechargeHistory = RechargeHistoryDatabase.getInstance(getContext()).getHistoryDAO().getAllHistory();
+        listRechargeHistory = RechargeHistoryDatabase.getInstance(getContext()).getHistoryDAO().getAllHistoriesOfAccount(DataLocalManager.getInstance().getPrefUsername());
         if (listRechargeHistory.isEmpty()) {
-            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền 1", "2023-12-12", 12000, 1, "Bạn đã nạp xèng thành công"));
-            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền 2", "2023-12-12", 100000, 0, "Bạn đã nạp xèng thất bại"));
-            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền 3", "2023-12-12", 562000, 1, "Bạn đã nạp xèng thành công"));
-            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền 4", "2023-12-12", 123000, 0, "Bạn đã nạp xèng thất bại"));
-            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền 5", "2023-12-12", 52300, 1, "Bạn đã nạp xèng thành công"));
-            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền 6", "2023-12-12", 33000, 1, "Bạn đã nạp xèng thành công"));
+            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 12000, 1, "Bạn đã nạp tiền thành công"));
+            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 100000, 0, "Bạn đã nạp tiền thất bại"));
+            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 562000, 1, "Bạn đã nạp tiền thành công"));
+            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 123000, 0, "Bạn đã nạp tiền thất bại"));
+            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 52300, 1, "Bạn đã nạp tiền thành công"));
+            listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 33000, 1, "Bạn đã nạp tiền thành công"));
         }
         recyclerView = view.findViewById(R.id.rcv_cate_all);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

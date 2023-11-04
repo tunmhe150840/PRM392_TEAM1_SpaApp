@@ -27,7 +27,7 @@ public class Account {
     @ColumnInfo(name = "address")
     private String address;
     @ColumnInfo(name = "avatar")
-    private String avatar;
+    private int avatar;
     @ColumnInfo(name = "money")
     private float money;
 
@@ -46,7 +46,7 @@ public class Account {
 
 
     public Account(String username, String password, String email, String phoneNumber,
-                   String fullName, String gender, String birthDate, String address, String avatar, float money) {
+                   String fullName, String gender, String birthDate, String address, int avatar, float money) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -131,11 +131,11 @@ public class Account {
         this.address = address;
     }
 
-    public String getAvatar() {
+    public int getAvatar() {
         return avatar;
     }
 
-    private void setAvatar(String avatar) {
+    private void setAvatar(int avatar) {
         this.avatar = avatar;
     }
 }

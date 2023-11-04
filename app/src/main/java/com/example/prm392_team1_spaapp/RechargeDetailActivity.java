@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.prm392_team1_spaapp.dataLocal.DataLocalManager;
+import com.example.prm392_team1_spaapp.model.AccountDatabase;
 import com.example.prm392_team1_spaapp.model.Money;
 
 import java.util.List;
@@ -42,17 +44,13 @@ public class RechargeDetailActivity extends AppCompatActivity {
         imv1 = findViewById(R.id.back);
         totalmoney = findViewById(R.id.totalmoney);
         submit = findViewById(R.id.confirm_button);
-        TransferMoneyDatabaseHelper transferMoneyDatabaseHelper = new TransferMoneyDatabaseHelper(RechargeDetailActivity.this);
-        List<Money> listMoney = transferMoneyDatabaseHelper.getAll();
-        Money moneyRoot = new Money();
-        //Money moneyRoot = listMoney.get(0);
-        totalmoney.setText(""+ moneyRoot.getTotalMoney() +"đ");
+
+        totalmoney.setText(""+ DataLocalManager.getInstance().getPrefMoney() +"đ");
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 edt1.setText(btn1.getText());
-
             }
         });
 
@@ -107,8 +105,11 @@ public class RechargeDetailActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float totalMoney =Float.parseFloat(edt1.getText().toString().trim()) + moneyRoot.getTotalMoney();
-                transferMoneyDatabaseHelper.decreaseMoney(moneyRoot.getId(),totalMoney);
+                float addMoney =Float.parseFloat(edt1.getText().toString().trim()) + Float.parseFloat(totalmoney.getText().toString().trim());
+                AccountDatabase.getInstance(getApplicationContext()).getAccountDAO().updateMoney(
+                        DataLocalManager.getInstance().getPrefUsername(), addMoney
+                );
+                DataLocalManager.getInstance().setPrefMoney(addMoney);
                 recreate();
             }
         });

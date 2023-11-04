@@ -46,7 +46,7 @@ public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.
         holder.tv_name.setText(rechargeHistory.getTransactionType());
         holder.tv_date.setText(rechargeHistory.getTransactionTime().toString());
         holder.description.setText(rechargeHistory.getDescription());
-        holder.money.setText(Integer.toString(rechargeHistory.getAmount()));
+        holder.money.setText(Float.toString(rechargeHistory.getAmount()));
         holder.status.setText(rechargeHistory.getStatus()==1? "Thành công" : "Thất bại");
         int colorRes = rechargeHistory.getStatus() == 1 ? R.color.green : R.color.red;
         int color = ContextCompat.getColor(holder.itemView.getContext(), colorRes);

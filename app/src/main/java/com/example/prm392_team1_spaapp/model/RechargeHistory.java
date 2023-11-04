@@ -2,21 +2,24 @@ package com.example.prm392_team1_spaapp.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "RechargeHistory")
+@Entity(tableName = "RechargeHistory"
+        , foreignKeys = @ForeignKey(entity = Account.class,parentColumns = "username",childColumns = "username"))
 public class RechargeHistory {
     @ColumnInfo(name = "recharge_history_id")
     @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo(name = "username")
     private String username;
     @ColumnInfo(name = "transaction_type")
     private String transactionType;
     @ColumnInfo(name = "transaction_time")
     private String transactionTime;
     @ColumnInfo(name = "amount")
-    private int amount;
+    private float amount;
     @ColumnInfo(name = "status")
     private int status;
     @ColumnInfo(name = "description")
@@ -25,7 +28,7 @@ public class RechargeHistory {
     public RechargeHistory(){
 
     }
-    public RechargeHistory(String username, String transactionType, String transactionTime, int amount, int status, String description) {
+    public RechargeHistory(String username, String transactionType, String transactionTime, float amount, int status, String description) {
         this.username = username;
         this.transactionType = transactionType;
         this.transactionTime = transactionTime;
@@ -66,11 +69,11 @@ public class RechargeHistory {
         this.transactionTime = transactionTime;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
