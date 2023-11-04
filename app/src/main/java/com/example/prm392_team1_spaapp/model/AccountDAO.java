@@ -19,6 +19,8 @@ public interface AccountDAO {
     public List<Account> getAllAccount();
     @Query("SELECT * FROM Account WHERE username ==:username")
     public Account getAccount(String username);
+    @Query("SELECT * FROM Account WHERE username ==:username & password ==:password")
+    public Account getAccount(String username,String password);
     @Query("UPDATE Account SET money =:money WHERE username ==:username")
     public void updateMoney(String username,float money);
 }
