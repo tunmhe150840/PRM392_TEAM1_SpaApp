@@ -17,11 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_team1_spaapp.R;
 import com.example.prm392_team1_spaapp.RechargeWithdraw;
+import com.example.prm392_team1_spaapp.ServiceDetailActivity;
 import com.example.prm392_team1_spaapp.adapter.ServiceAdapter;
+import com.example.prm392_team1_spaapp.adapter.my_interface.OnItemClickListener;
 import com.example.prm392_team1_spaapp.dataLocal.DataLocalManager;
 import com.example.prm392_team1_spaapp.model.Service;
 import com.example.prm392_team1_spaapp.model.ServiceDatabase;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -42,11 +45,21 @@ public class HomeFragment extends Fragment {
 
         mServiceList = ServiceDatabase.getInstance(getContext()).getServiceDAO().getAllService();
         Log.d("TAG", "onCreate: "+mServiceList.get(1).getServiceName());
+
         rcvService = view.findViewById(R.id.rcv_service);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 4); // 2 cột trong lưới
         rcvService.setLayoutManager(layoutManager);
         ServiceAdapter serviceAdapter = new ServiceAdapter(); // Thay yourDataList bằng danh sách dữ liệu của bạn
-        serviceAdapter.setData(mServiceList);
+        serviceAdapter.setData(mServiceList, new OnItemClickListener() {
+            @Override
+            public void onItemClick(Service selectedService) {
+                Intent intent = new Intent(getContext(), ServiceDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_service", selectedService);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         rcvService.setAdapter(serviceAdapter);
 
 //        LinearLayout linearLayout = view.findViewById(R.id.bill);
@@ -88,7 +101,7 @@ public class HomeFragment extends Fragment {
 
         });
 
-
+        rcvService.on
         return view;
     }
 
