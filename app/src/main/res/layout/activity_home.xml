@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".Home">
+    android:orientation="vertical">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -183,186 +182,193 @@
 
     </RelativeLayout>
 
-
-
-    <GridLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_service"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="20dp"
-        android:columnCount="4"
-        android:rowCount="2">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="4" />
+
+<!--    <GridLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:columnCount="4"-->
+<!--        android:rowCount="2">-->
 
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/cham_soc_da" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Chăm sóc da"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/bill"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/tri_nam" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Trị nám"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/cham_soc_da" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Chăm sóc da"-->
+<!--                android:layout_gravity="center_horizontal"/>-->
+<!--        </LinearLayout>-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/bill"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/tri_nam" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Trị nám"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/triet_long" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Triệt lông"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/triet_long" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:text="Triệt lông"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/tre_hoa_da" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Trẻ hóa da"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/tre_hoa_da" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Trẻ hóa da"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/massage" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Massage"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/massage" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Massage"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/tam_trang" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Tắm trắng"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/tam_trang" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Tắm trắng"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/tri_mun" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Trị mụn"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/tri_mun" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Trị mụn"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/collagen" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Cấy collagen tươi"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/collagen" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Cấy collagen tươi"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/giam_beo" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Giảm béo"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/giam_beo" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Giảm béo"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:src="@drawable/phun_xam" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="Thẩm mĩ"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-    </GridLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/phun_xam" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:text="Thẩm mĩ"-->
+<!--                android:layout_gravity="center"/>-->
+<!--        </LinearLayout>-->
+<!--    </GridLayout>-->
 
 
 </LinearLayout>

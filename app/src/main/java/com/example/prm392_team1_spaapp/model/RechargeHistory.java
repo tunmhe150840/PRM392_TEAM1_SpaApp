@@ -10,7 +10,7 @@ public class RechargeHistory {
     @ColumnInfo(name = "recharge_history_id")
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private int user_id;
+    private String username;
     @ColumnInfo(name = "transaction_type")
     private String transactionType;
     @ColumnInfo(name = "transaction_time")
@@ -25,9 +25,8 @@ public class RechargeHistory {
     public RechargeHistory(){
 
     }
-    public RechargeHistory(int id, int user_id, String transactionType, String transactionTime, int amount, int status, String description) {
-        this.id = id;
-        this.user_id = user_id;
+    public RechargeHistory(String username, String transactionType, String transactionTime, int amount, int status, String description) {
+        this.username = username;
         this.transactionType = transactionType;
         this.transactionTime = transactionTime;
         this.amount = amount;
@@ -43,12 +42,12 @@ public class RechargeHistory {
         this.id = id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getTransactionType() {
