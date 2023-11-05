@@ -5,7 +5,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {RechargeHistory.class}, version = 1)
+@Database(entities = {RechargeHistory.class, Account.class}, version = 1)
 public abstract class RechargeHistoryDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "RechargeHistory.db";

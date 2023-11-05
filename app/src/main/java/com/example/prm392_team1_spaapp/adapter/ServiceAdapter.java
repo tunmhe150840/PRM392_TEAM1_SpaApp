@@ -1,5 +1,6 @@
 package com.example.prm392_team1_spaapp.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,16 @@ import com.example.prm392_team1_spaapp.model.Service;
 import java.util.List;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>{
+    private Context context;
     private List<Service> mListService;
     private OnItemClickListener itemClickListener;
+
+    public ServiceAdapter() {}
+
+    public ServiceAdapter(Context context, List<Service> list, OnItemClickListener listener) {
+        this.mListService = list;
+        this.itemClickListener = listener;
+    }
 
     public void setData(List<Service> list, OnItemClickListener listener){
         this.mListService = list;
@@ -42,7 +51,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
 
         holder.imgServiceImage.setImageResource(service.getImg());
         holder.tvServiceName.setText(service.getServiceName());
-
         holder.layoutServiceItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,14 +70,15 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
     }
 
     public class ServiceViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout layoutServiceItem;
-        private ImageView imgServiceImage;
-        private TextView tvServiceName;
+        private final LinearLayout layoutServiceItem;
+        private final ImageView imgServiceImage;
+        private final TextView tvServiceName;
+
         public ServiceViewHolder(@NonNull View itemView) {
             super(itemView);
             imgServiceImage = itemView.findViewById(R.id.img_service_image);
             tvServiceName = itemView.findViewById(R.id.tv_service_name);
-            layoutServiceItem = itemView.findViewById(R.id.layout_service_item);
+            layoutServiceItem = itemView.findViewById(R.id.cate_all_item);
         }
     }
 }

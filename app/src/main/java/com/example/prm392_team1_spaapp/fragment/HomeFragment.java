@@ -49,17 +49,13 @@ public class HomeFragment extends Fragment {
         rcvService = view.findViewById(R.id.rcv_service);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 4); // 2 cột trong lưới
         rcvService.setLayoutManager(layoutManager);
-        ServiceAdapter serviceAdapter = new ServiceAdapter(); // Thay yourDataList bằng danh sách dữ liệu của bạn
-        serviceAdapter.setData(mServiceList, new OnItemClickListener() {
-            @Override
-            public void onItemClick(Service selectedService) {
-                Intent intent = new Intent(getContext(), ServiceDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("object_service", selectedService);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
+        ServiceAdapter serviceAdapter = new ServiceAdapter(this.getActivity(), mServiceList, selectedService -> {
+            Intent intent = new Intent(getContext(), ServiceDetailActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("object_service", selectedService);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }); // Thay yourDataList bằng danh sách dữ liệu của bạn
         rcvService.setAdapter(serviceAdapter);
 
 //        LinearLayout linearLayout = view.findViewById(R.id.bill);
@@ -101,7 +97,7 @@ public class HomeFragment extends Fragment {
 
         });
 
-        rcvService.on
+//        rcvService.on
         return view;
     }
 
