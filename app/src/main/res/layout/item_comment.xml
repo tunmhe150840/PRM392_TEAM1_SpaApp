@@ -17,7 +17,7 @@
         android:layout_marginBottom="5dp">
 
         <!-- ImageView -->
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/round_img"

@@ -24,9 +24,9 @@
 <!--        android:name="fpt.edu.pay.fragment.CoinFragment"-->
 <!--        android:label="fragment_coin"-->
 <!--        tools:layout="@layout/fragment_coin" />-->
-<!--    <fragment-->
-<!--        android:id="@+id/menu_account"-->
-<!--        android:name="fpt.edu.pay.fragment.AccountFragment"-->
-<!--        android:label="fragment_account"-->
-<!--        tools:layout="@layout/fragment_account" />-->
+    <fragment
+        android:id="@+id/menu_account"
+        android:name="com.example.prm392_team1_spaapp.fragment.SettingAccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/activity_setting_acount" />
 </navigation>

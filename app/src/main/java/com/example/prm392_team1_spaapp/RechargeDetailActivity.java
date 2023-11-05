@@ -102,7 +102,7 @@ public class RechargeDetailActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float addMoney =Float.parseFloat(edt1.getText().toString().trim()) + Float.parseFloat(totalmoney.getText().toString().trim());
+                float addMoney =Float.parseFloat(edt1.getText().toString().trim()) + DataLocalManager.getInstance().getPrefMoney();
                 AccountDatabase.getInstance(getApplicationContext()).getAccountDAO().updateMoney(
                         DataLocalManager.getInstance().getPrefUsername(), addMoney
                 );

@@ -44,7 +44,7 @@ public class WithdrawDetailActivity extends AppCompatActivity {
         totalMoney = findViewById(R.id.totalMoney);
         submit = findViewById(R.id.confirm_button2);
 
-        totalMoney.setText(""+ DataLocalManager.getInstance().getPrefMoney());
+        totalMoney.setText(""+ DataLocalManager.getInstance().getPrefMoney() + "đ");
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +103,7 @@ public class WithdrawDetailActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float subMoney = Float.parseFloat(totalMoney.getText().toString().trim()) - Float.parseFloat(edt1.getText().toString().trim());
+                float subMoney = DataLocalManager.getInstance().getPrefMoney() - Float.parseFloat(edt1.getText().toString().trim());
                 AccountDatabase.getInstance(getApplicationContext()).getAccountDAO().updateMoney(
                         DataLocalManager.getInstance().getPrefUsername(), subMoney
                 );

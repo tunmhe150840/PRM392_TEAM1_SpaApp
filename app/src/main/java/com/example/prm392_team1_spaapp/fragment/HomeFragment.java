@@ -8,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +23,6 @@ import com.example.prm392_team1_spaapp.dataLocal.DataLocalManager;
 import com.example.prm392_team1_spaapp.model.Service;
 import com.example.prm392_team1_spaapp.model.ServiceDatabase;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -58,6 +56,11 @@ public class HomeFragment extends Fragment {
                 bundle.putSerializable("object_service", selectedService);
                 intent.putExtras(bundle);
                 startActivity(intent);
+            }
+
+            @Override
+            public void onItemClick(Setting selectedSetting) {
+                return;
             }
         });
         rcvService.setAdapter(serviceAdapter);
