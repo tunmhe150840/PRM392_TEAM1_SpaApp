@@ -6,8 +6,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "RechargeHistory"
-        , foreignKeys = @ForeignKey(entity = Account.class,parentColumns = "username",childColumns = "username"))
+@Entity(tableName = "RechargeHistory")
 public class RechargeHistory {
     @ColumnInfo(name = "recharge_history_id")
     @PrimaryKey(autoGenerate = true)
@@ -28,6 +27,7 @@ public class RechargeHistory {
     public RechargeHistory(){
 
     }
+
     public RechargeHistory(String username, String transactionType, String transactionTime, float amount, int status, String description) {
         this.username = username;
         this.transactionType = transactionType;

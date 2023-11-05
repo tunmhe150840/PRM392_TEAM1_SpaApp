@@ -23,16 +23,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private List<Service> mServiceList;
     private NavHostFragment navHostFragment;
     private NavController navController;
-    RechargeHistoryDatabase rechargeHistoryDB;
+    private List<RechargeHistory> mRechargeHistoryList;
+    private List<Service> mServiceList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        initdata();
+        initData();
         initNavigation();
     }
 
@@ -43,22 +43,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
     }
 
-    public List<RechargeHistory> initData(){
-        RoomDatabase.Callback myCallback = new RoomDatabase.Callback() {
-            @Override
-            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                super.onCreate(db);
-            }
 
-            @Override
-            public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                super.onOpen(db);
-            }
-        };
-        return rechargeHistoryDB.getHistoryDAO().getAllHistory();
-    }
-
-    public void initdata(){
+    public void initData(){
         mServiceList = ServiceDatabase.getInstance(this).getServiceDAO().getAllService();
         if (mServiceList.isEmpty()) {
             Service service1 = new Service("Chăm sóc da", 1500000, "90 phút", "Dịch vụ chăm sóc da chuyên nghiệp với quy trình làm sạch, tẩy tế bào chết, và cung cấp dưỡng chất để da trở nên mềm mịn và tươi trẻ.", R.drawable.cham_soc_da);
@@ -92,7 +78,31 @@ public class MainActivity extends AppCompatActivity {
             ServiceDatabase.getInstance(this).getServiceDAO().addService(service10);
             mServiceList = ServiceDatabase.getInstance(this).getServiceDAO().getAllService();
         }
-        Log.d("TAG", "initdata: " + mServiceList.get(0).getServiceName());
 
+        Log.d("TAG", "Service: " + mServiceList.get(0).getServiceName());
+        mRechargeHistoryList = RechargeHistoryDatabase.getInstance(this).getHistoryDAO().getAllHistory();
+        if (mRechargeHistoryList.isEmpty()) {
+            RechargeHistory rechargeHistory1 = new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 12000, 1, "Bạn đã nạp tiền thành công");
+            RechargeHistoryDatabase.getInstance(this).getHistoryDAO().addHistory(rechargeHistory1);
+
+            RechargeHistory rechargeHistory2 = new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 100000, 0, "Bạn đã nạp tiền thất bại");
+            RechargeHistoryDatabase.getInstance(this).getHistoryDAO().addHistory(rechargeHistory2);
+
+            RechargeHistory rechargeHistory3 = new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 562000, 1, "Bạn đã nạp tiền thành công");
+            RechargeHistoryDatabase.getInstance(this).getHistoryDAO().addHistory(rechargeHistory3);
+
+            RechargeHistory rechargeHistory4 = new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 123000, 0, "Bạn đã nạp tiền thất bại");
+            RechargeHistoryDatabase.getInstance(this).getHistoryDAO().addHistory(rechargeHistory4);
+
+            RechargeHistory rechargeHistory5 = new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 52300, 1, "Bạn đã nạp tiền thành công");
+            RechargeHistoryDatabase.getInstance(this).getHistoryDAO().addHistory(rechargeHistory5);
+
+            RechargeHistory rechargeHistory6 = new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 33000, 1, "Bạn đã nạp tiền thành công");
+            RechargeHistoryDatabase.getInstance(this).getHistoryDAO().addHistory(rechargeHistory6);
+            mRechargeHistoryList = RechargeHistoryDatabase.getInstance(this).getHistoryDAO().getAllHistory();
+        }
+        Log.d("TAG", "RechargeHistory: " + mRechargeHistoryList.get(0).getDescription());
     }
+
+
 }

@@ -100,8 +100,6 @@ public class HomeFragment extends Fragment {
             }
 
         });
-
-        rcvService.on
         return view;
     }
 

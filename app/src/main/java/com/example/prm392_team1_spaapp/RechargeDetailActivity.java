@@ -12,9 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.prm392_team1_spaapp.dataLocal.DataLocalManager;
 import com.example.prm392_team1_spaapp.model.AccountDatabase;
-import com.example.prm392_team1_spaapp.model.Money;
-
-import java.util.List;
 
 
 public class RechargeDetailActivity extends AppCompatActivity {

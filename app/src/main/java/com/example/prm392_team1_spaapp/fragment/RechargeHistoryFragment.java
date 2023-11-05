@@ -38,7 +38,6 @@ public class RechargeHistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history_list, container, false);;
-        listRechargeHistory = new ArrayList<>();
         listRechargeHistory = RechargeHistoryDatabase.getInstance(getContext()).getHistoryDAO().getAllHistoriesOfAccount(DataLocalManager.getInstance().getPrefUsername());
         if (listRechargeHistory.isEmpty()) {
             listRechargeHistory.add(new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 12000, 1, "Bạn đã nạp tiền thành công"));
