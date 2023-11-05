@@ -72,11 +72,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Điểm độc đáo: Dịch vụ mát-xa thư giãn với dầu thơm."
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
                 android:textSize="18sp"
-                android:paddingBottom="8dp"/>
+                android:paddingBottom="50dp"/>
+
+            <VideoView
+                android:id="@+id/vidvw"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Video Hướng dẫn"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"/>
 
             <Button
                 android:id="@+id/btn_book_service"
@@ -84,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:text="Đặt lịch"
+                android:onClick="onPushNotification"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp" />
 
@@ -117,6 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gửi đánh giá"
+                android:onClick="onVoteNotification"
                 android:layout_marginStart="20dp"
                 android:layout_gravity="start"/>
             <include
