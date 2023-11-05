@@ -95,7 +95,7 @@ public class WithdrawDetailActivity extends AppCompatActivity {
         imv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WithdrawDetailActivity.this, RechargeWithdraw.class);
+                Intent intent = new Intent(WithdrawDetailActivity.this, RechargeWithdrawActivity.class);
                 startActivity(intent);
             }
         });

@@ -14,7 +14,6 @@ public class Service implements Serializable {
     @ColumnInfo(name = "service_name")
     private String serviceName;  // Tên dịch vụ
     @ColumnInfo(name = "price")
-
     private double price;        // Giá dịch vụ
     @ColumnInfo(name = "duration")
     private String duration;     // Thời gian dự kiến

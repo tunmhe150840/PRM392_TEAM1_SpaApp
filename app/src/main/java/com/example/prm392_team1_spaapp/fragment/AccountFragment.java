@@ -34,7 +34,7 @@ public class AccountFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_account,container,false);
+        View view = inflater.inflate(R.layout.fragment_account,container,false);
 
         civAvatar = view.findViewById(R.id.common_account_header_avatar);
         tvFullName = view.findViewById(R.id.common_account_header_name);

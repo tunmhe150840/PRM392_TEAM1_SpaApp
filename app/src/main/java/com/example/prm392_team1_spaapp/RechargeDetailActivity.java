@@ -94,7 +94,7 @@ public class RechargeDetailActivity extends AppCompatActivity {
         imv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RechargeDetailActivity.this, RechargeWithdraw.class);
+                Intent intent = new Intent(RechargeDetailActivity.this, RechargeWithdrawActivity.class);
                 startActivity(intent);
             }
         });

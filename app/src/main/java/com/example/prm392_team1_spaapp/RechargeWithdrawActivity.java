@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RechargeWithdraw extends AppCompatActivity {
+public class RechargeWithdrawActivity extends AppCompatActivity {
     ImageView imv1;
     ImageView imv2;
 
@@ -23,7 +23,7 @@ public class RechargeWithdraw extends AppCompatActivity {
         imv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RechargeWithdraw.this, RechargeDetailActivity.class);
+                Intent intent = new Intent(RechargeWithdrawActivity.this, RechargeDetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -31,7 +31,7 @@ public class RechargeWithdraw extends AppCompatActivity {
         imv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RechargeWithdraw.this, WithdrawDetailActivity.class);
+                Intent intent = new Intent(RechargeWithdrawActivity.this, WithdrawDetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -39,7 +39,7 @@ public class RechargeWithdraw extends AppCompatActivity {
         imv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RechargeWithdraw.this, MainActivity.class);
+                Intent intent = new Intent(RechargeWithdrawActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

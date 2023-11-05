@@ -10,7 +10,7 @@
     <item android:id="@+id/menu_qr"
         android:title="@string/menu_qr"
         android:icon="@drawable/ic_qr" />
-    <item android:id="@+id/menu_coin"
+    <item android:id="@+id/menu_promotion"
         android:title="@string/menu_coin"
         android:icon="@drawable/ic_coin" />
     <item android:id="@+id/menu_account"

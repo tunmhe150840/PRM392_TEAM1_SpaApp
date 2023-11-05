@@ -35,15 +35,16 @@ public class Account {
     public Account() {
 
     }
-
     @Ignore
-    public Account(String username, String password, String email, String phoneNumber) {
+    public Account(@NonNull String username, String password, String email, String phoneNumber, String gender, String birthDate, String address) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.address = address;
     }
-
 
     public Account(String username, String password, String email, String phoneNumber,
                    String fullName, String gender, String birthDate, String address, int avatar, float money) {

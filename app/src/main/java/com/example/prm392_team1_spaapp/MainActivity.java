@@ -3,16 +3,14 @@ package com.example.prm392_team1_spaapp;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.prm392_team1_spaapp.databinding.ActivityMainBinding;
+import com.example.prm392_team1_spaapp.model.Promotion;
+import com.example.prm392_team1_spaapp.model.PromotionDatabase;
 import com.example.prm392_team1_spaapp.model.RechargeHistory;
 import com.example.prm392_team1_spaapp.model.RechargeHistoryDatabase;
 import com.example.prm392_team1_spaapp.model.Service;
@@ -25,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private NavHostFragment navHostFragment;
     private NavController navController;
+    private List<Promotion> mPromotionList;
     private List<RechargeHistory> mRechargeHistoryList;
     private List<Service> mServiceList;
     @Override
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Log.d("TAG", "Service: " + mServiceList.get(0).getServiceName());
+
         mRechargeHistoryList = RechargeHistoryDatabase.getInstance(this).getHistoryDAO().getAllHistory();
         if (mRechargeHistoryList.isEmpty()) {
             RechargeHistory rechargeHistory1 = new RechargeHistory( "tunm17421", "Nạp tiền", "2023-12-12", 12000, 1, "Bạn đã nạp tiền thành công");
@@ -101,8 +101,63 @@ public class MainActivity extends AppCompatActivity {
             RechargeHistoryDatabase.getInstance(this).getHistoryDAO().addHistory(rechargeHistory6);
             mRechargeHistoryList = RechargeHistoryDatabase.getInstance(this).getHistoryDAO().getAllHistory();
         }
+
         Log.d("TAG", "RechargeHistory: " + mRechargeHistoryList.get(0).getDescription());
+
+        mPromotionList = PromotionDatabase.getInstance(this).getPromotionDAO().getAllPromotion();
+        if (mPromotionList.isEmpty()){
+            Promotion promotion1 = new Promotion(
+                    "Ưu đãi 20% cho dịch vụ Massage thư giãn",
+                    "Chương trình khuyến mãi dành cho tất cả khách hàng, giảm giá 20% cho mọi dịch vụ Massage thư giãn tại cửa hàng của chúng tôi.",
+                    R.drawable.promotion_1,
+                    "2023-11-01",
+                    "2023-11-30",
+                    20.0
+            );
+            PromotionDatabase.getInstance(this).getPromotionDAO().addPromotion(promotion1);
+
+            Promotion promotion2 = new Promotion(
+                    "Combo tiết kiệm: Massage và xông hơi",
+                    "Combo tiết kiệm với Massage và xông hơi chỉ với giá 500,000 VNĐ. Hãy tận hưởng dịch vụ thư giãn đỉnh cao tại spa của chúng tôi.",
+                    R.drawable.promotion_2,
+                    "2023-12-01",
+                    "2023-12-31",
+                    30.0
+            );
+            PromotionDatabase.getInstance(this).getPromotionDAO().addPromotion(promotion2);
+
+            Promotion promotion3 = new Promotion(
+                    "Khách hàng mới giảm 15%",
+                    "Chào mừng các khách hàng mới! Hãy sử dụng mã giảm giá NEWCUSTOMER để nhận ưu đãi 15% cho dịch vụ đầu tiên của bạn.",
+                    R.drawable.promotion_3,
+                    "2023-10-15",
+                    "2023-12-31",
+                    15.0
+            );
+            PromotionDatabase.getInstance(this).getPromotionDAO().addPromotion(promotion3);
+
+            Promotion promotion4 = new Promotion(
+                    "Tặng voucher trị giá 200,000 VNĐ",
+                    "Tặng voucher trị giá 200,000 VNĐ cho tất cả khách hàng mua dịch vụ trị giá 1,000,000 VNĐ trở lên.",
+                    R.drawable.promotion_4,
+                    "2023-11-15",
+                    "2023-11-30",
+                    0.0
+            );
+            PromotionDatabase.getInstance(this).getPromotionDAO().addPromotion(promotion4);
+
+            Promotion promotion5 = new Promotion(
+                    "Ngày hội khuyến mãi lớn",
+                    "Chương trình ngày hội khuyến mãi với hàng loạt ưu đãi hấp dẫn. Giảm giá, tặng quà và nhiều phần quà hấp dẫn khác đang chờ bạn.",
+                    R.drawable.promotion_5,
+                    "2023-12-10",
+                    "2023-12-12",
+                    10.0
+            );
+            PromotionDatabase.getInstance(this).getPromotionDAO().addPromotion(promotion5);
+            mPromotionList = PromotionDatabase.getInstance(this).getPromotionDAO().getAllPromotion();
+        }
+
+        Log.d("TAG", "Promotion: " + mPromotionList.get(0).getTitle());
     }
-
-
 }

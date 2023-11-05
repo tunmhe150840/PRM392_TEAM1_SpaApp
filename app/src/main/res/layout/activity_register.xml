@@ -21,14 +21,13 @@
         android:id="@+id/btn_register"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
-        android:onClick="onRegister"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/primary"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rd_male" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupGender" />
 
     <TextView
         android:id="@+id/edt_signup"
@@ -50,10 +49,11 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="Enter Your Name"
-        android:inputType="text"
         android:textColorHint="@color/black"
+        android:hint="Enter user name"
+        android:background="@drawable/edittext_background"
+        android:textStyle="italic"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +66,10 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="Enter Phone Number"
+        android:hint="Enter phone number"
         android:inputType="text"
+        android:background="@drawable/edittext_background"
+        android:textStyle="italic"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -97,35 +99,42 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Birthdate"
-        android:inputType="text"
+        android:background="@drawable/edittext_background"
+        android:textStyle="italic"
+        android:inputType="date"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_address" />
 
-    <RadioButton
-        android:id="@+id/rd_male"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/radioGroupGender"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif"
-        android:text="Male"
-        app:layout_constraintEnd_toStartOf="@+id/rd_fmale"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_phone" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_phone">
 
-    <RadioButton
-        android:id="@+id/rd_fmale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:text="Female"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rd_male"
-        app:layout_constraintTop_toTopOf="@+id/rd_male" />
+        <RadioButton
+            android:id="@+id/rd_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:fontFamily="sans-serif"
+            android:layout_marginEnd="50dp"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/rd_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:textStyle="italic"
+            android:fontFamily="sans-serif"
+            android:text="Female" />
+    </RadioGroup>
 
     <EditText
         android:id="@+id/edt_email"
@@ -134,7 +143,9 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="Enter Email Address"
+        android:hint="Enter email address"
+        android:background="@drawable/edittext_background"
+        android:textStyle="italic"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +160,9 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="Enter Password"
+        android:hint="Enter password"
+        android:background="@drawable/edittext_background"
+        android:textStyle="italic"
         android:inputType="textPassword"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +177,9 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="Enter Re-Password"
+        android:hint="Enter re-password"
+        android:background="@drawable/edittext_background"
+        android:textStyle="italic"
         android:inputType="textPassword"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

@@ -55,7 +55,7 @@ public class UserProfileActivity extends AppCompatActivity {
         updateUserProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(UserProfileActivity.this,"Chức năng hiện tại chưa khả dụng. Vui lòng chờ update. T from with luv <3!",Toast.LENGTH_SHORT);
+                Toast.makeText(UserProfileActivity.this,"Chức năng hiện tại chưa khả dụng. Vui lòng chờ update. T from with luv <3!",Toast.LENGTH_SHORT).show();
             }
         });
 

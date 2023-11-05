@@ -15,11 +15,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_team1_spaapp.R;
-import com.example.prm392_team1_spaapp.RechargeWithdraw;
+import com.example.prm392_team1_spaapp.RechargeWithdrawActivity;
 import com.example.prm392_team1_spaapp.ServiceDetailActivity;
 import com.example.prm392_team1_spaapp.adapter.ServiceAdapter;
 import com.example.prm392_team1_spaapp.adapter.my_interface.OnItemClickListener;
 import com.example.prm392_team1_spaapp.dataLocal.DataLocalManager;
+import com.example.prm392_team1_spaapp.model.Promotion;
 import com.example.prm392_team1_spaapp.model.Service;
 import com.example.prm392_team1_spaapp.model.ServiceDatabase;
 
@@ -39,7 +40,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         mServiceList = ServiceDatabase.getInstance(getContext()).getServiceDAO().getAllService();
         Log.d("TAG", "onCreate: "+mServiceList.get(1).getServiceName());
@@ -56,6 +57,11 @@ public class HomeFragment extends Fragment {
                 bundle.putSerializable("object_service", selectedService);
                 intent.putExtras(bundle);
                 startActivity(intent);
+            }
+
+            @Override
+            public void onItemClick(Promotion selectedPromotion) {
+                return;
             }
         });
         rcvService.setAdapter(serviceAdapter);
@@ -75,7 +81,7 @@ public class HomeFragment extends Fragment {
         img_recharge_withdraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), RechargeWithdraw.class);
+                Intent intent = new Intent(getActivity(), RechargeWithdrawActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,6 +89,7 @@ public class HomeFragment extends Fragment {
         img_see_money.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                Log.d("TAG", "onLongClick: seeMoneyRun");
                 tv_money.setText(String.valueOf(DataLocalManager.getInstance().getPrefMoney())); // Hiển thị số tiền
                 return true; // Trả về true để xác nhận xử lý sự kiện long click
             }

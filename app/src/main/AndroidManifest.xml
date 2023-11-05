@@ -16,11 +16,14 @@
         android:theme="@style/Theme.PRM392_TEAM1_SpaApp"
         tools:targetApi="31">
         <activity
+            android:name=".AccountSettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivities"
             android:exported="false" />
         <activity
             android:name=".ServiceDetailActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
@@ -34,7 +37,7 @@
             android:name=".RechargeDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".RechargeWithdraw"
+            android:name=".RechargeWithdrawActivity"
             android:exported="false" />
         <activity
             android:name=".WithdrawDetailActivity"

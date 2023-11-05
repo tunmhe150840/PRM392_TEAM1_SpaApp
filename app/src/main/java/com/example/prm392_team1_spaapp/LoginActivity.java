@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,10 +39,18 @@ public class LoginActivity extends AppCompatActivity {
         tv_register = findViewById(R.id.tv_register);
         img_login = findViewById(R.id.img_login);
 
+        tv_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),RegisterActivities.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void clickOnLogin(View view) {
         if (et_username.getText().toString() == "" || et_password.getText().toString() == ""){
+            Toast.makeText(getApplicationContext(),"Vui lòng xin nhập đủ thông tin để đăng nhập",Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -55,8 +64,11 @@ public class LoginActivity extends AppCompatActivity {
             DataLocalManager.getInstance().setPrefMoney(account.getMoney());
             DataLocalManager.getInstance().setPrefPhone(account.getPhoneNumber());
             Intent intent = new Intent(this, MainActivity.class);
+            Toast.makeText(getApplicationContext(),"Yay đăng nhập thành công *(^O^)*",Toast.LENGTH_SHORT).show();
             startActivity(intent);
+            return;
         }
+        Toast.makeText(getApplicationContext(),"Người dùng không tồn tại (-_-)",Toast.LENGTH_SHORT).show();
     }
 
     public void initData() {
