@@ -5,6 +5,7 @@ import android.content.Context;
 public class DataLocalManager {
     private static final String PREF_USERNAME = "PREF_USERNAME";
     private static final String PREF_MONEY = "PREF_MONEY";
+    private static final String PREF_PHONE = "PREF_PHONE";
     private static DataLocalManager instance;
     private MySharePreferences mySharePreferences;
 
@@ -19,6 +20,14 @@ public class DataLocalManager {
         }
 
         return instance;
+    }
+
+    public void setPrefPhone(String phone){
+        DataLocalManager.getInstance().mySharePreferences.putStringValue(PREF_PHONE, phone);
+    }
+
+    public String getPrefPhone() {
+        return DataLocalManager.getInstance().mySharePreferences.getStringValue(PREF_PHONE);
     }
 
     public void setPrefUsername(String username){

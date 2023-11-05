@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical"
-    tools:context=".activity_user_profile">
+    tools:context=".UserProfileActivity">
 
     <include layout="@layout/toolbar_activity_user_profile" />
 
@@ -19,6 +19,15 @@
         android:orientation="horizontal"
         android:paddingTop="15dp"
         android:paddingBottom="15dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/common_account_header_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/avatar_1"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/primary" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,14 +35,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="KhoiNT"
-                android:textSize="16dp"
-
-                />
+                android:textSize="16dp"/>
 
             <TextView
+                android:id="@+id/tv_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0369085289"
@@ -42,6 +51,7 @@
 
 
         <TextView
+            android:id="@+id/tv_change_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -64,38 +74,6 @@
         android:background="@color/bg"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Loại tài khoản"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="10dp"
-            android:text="Cần cập nhật"
-            android:textColor="@color/orange"
-            android:textSize="16dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:src="@drawable/baseline_arrow_forward_ios_24" />
-    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -122,6 +100,7 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/tv_full_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -153,6 +132,7 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/tv_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -184,6 +164,7 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/tv_birth_day"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -211,29 +192,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CMND"
+            android:text="Email"
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/tv_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="*********709"
+            android:text="abc@gmail.com"
             android:textSize="16dp" />
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2px"
-        android:background="@color/bg" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bg"
-        android:orientation="horizontal"
-        android:padding="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -252,13 +221,50 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/tv_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
-
             android:text="Hà Nội"
             android:textSize="16dp" />
+    </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/bg" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:orientation="horizontal"
+        android:padding="10dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_update_user_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary"
+            android:text="Cập nhật thông tin tài khoản"
+            android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/baseline_arrow_forward_green"/>
 
     </LinearLayout>
 
@@ -273,30 +279,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mã định danh"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="191128873010306"
-            android:textSize="16dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:background="@color/bg"
         android:orientation="horizontal"
         android:padding="10dp" />
@@ -307,6 +289,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:gravity="center_vertical"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:paddingTop="15dp"
         android:paddingBottom="15dp">
@@ -314,15 +297,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đóng tài khoản"
+            android:textStyle="italic"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="I wish you have a nice day"
             android:textSize="16dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
-            android:gravity="right"
-            android:src="@drawable/baseline_arrow_back_ios_24" />
     </LinearLayout>
 
     <View

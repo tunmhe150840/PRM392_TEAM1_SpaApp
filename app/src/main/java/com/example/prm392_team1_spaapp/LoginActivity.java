@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         if (account != null) {
             DataLocalManager.getInstance().setPrefUsername(account.getUsername());
             DataLocalManager.getInstance().setPrefMoney(account.getMoney());
+            DataLocalManager.getInstance().setPrefPhone(account.getPhoneNumber());
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

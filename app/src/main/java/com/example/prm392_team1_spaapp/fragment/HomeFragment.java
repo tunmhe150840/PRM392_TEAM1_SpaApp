@@ -57,11 +57,6 @@ public class HomeFragment extends Fragment {
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
-
-            @Override
-            public void onItemClick(Setting selectedSetting) {
-                return;
-            }
         });
         rcvService.setAdapter(serviceAdapter);
 
