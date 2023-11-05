@@ -66,14 +66,6 @@ public class HomeFragment extends Fragment {
         });
         rcvService.setAdapter(serviceAdapter);
 
-//        LinearLayout linearLayout = view.findViewById(R.id.bill);
-//        linearLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), PayBillActivity.class);
-//                startActivity(intent);
-//            }
-//        });
         img_recharge_withdraw = view.findViewById(R.id.recharge_withdraw);
         img_see_money = view.findViewById(R.id.img_see_money);
         tv_money = view.findViewById(R.id.tv_money);
@@ -86,24 +78,24 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        img_see_money.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Log.d("TAG", "onLongClick: seeMoneyRun");
-                tv_money.setText(String.valueOf(DataLocalManager.getInstance().getPrefMoney())); // Hiển thị số tiền
-                return true; // Trả về true để xác nhận xử lý sự kiện long click
-            }
-        });
-
         img_see_money.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    tv_money.setText("Xem số dư");
-                }
-                return true;
-            }
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Xử lý sự kiện khi nút được nhấn
+                        tv_money.setText(String.valueOf(DataLocalManager.getInstance().getPrefMoney()));
+                        return true; // Trả về true để xác nhận rằng sự kiện đã được xử lý
 
+                    case MotionEvent.ACTION_UP:
+                        // Xử lý sự kiện khi nút được thả ra
+                        tv_money.setText("Xem số dư");
+                        return true; // Trả về true để xác nhận rằng sự kiện đã được xử lý
+
+                    default:
+                        return false;
+                }
+            }
         });
         return view;
     }
